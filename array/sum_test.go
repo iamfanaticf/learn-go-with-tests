@@ -1,6 +1,9 @@
 package sum
 
-import "testing"
+import (
+  "testing"
+  "slices"
+)
 
 func TestSum(t *testing.T) {
   t.Run("collection of any size", func(t *testing.T) {
@@ -27,3 +30,18 @@ func TestSumAll(t *testing.T) {
      }
   })
 }
+
+func TestFlatten(t *testing.T) {
+  t.Run("flatten the slices", func(t *testing.T) {
+    slice1 := []int {1, 2, 3}
+    slice2 := []int {4, 5}
+    got := Flatten(slice1, slice2)
+    want := []int {1, 2, 3, 4, 5}
+
+    if !slices.Equal(got, want) {
+    t.Errorf("got %d want %d", got, want)
+     }
+  })
+}
+
+

@@ -17,3 +17,14 @@ func SumAll(slices ...[]int) int {
   }
   return sum
 }
+
+func Flatten(slices ...[]int) []int {
+  var flattened []int
+  for _,slice := range slices {
+    for _,number := range slice {
+      flattened = append(flattened, number)
+    }
+  }
+
+  return flattened
+}
