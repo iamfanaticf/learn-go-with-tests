@@ -28,3 +28,40 @@ func Flatten(slices ...[]int) []int {
 
   return flattened
 }
+
+func SumAllTails(slices ...[]int) []int {
+  var tailSum []int
+  for _,slice := range slices {
+    if len(slice) == 0 {
+      tailSum = append(tailSum, 0)
+    } else {
+    tail := slice[1:]
+    tailSum = append(tailSum, Sum(tail))
+  }
+  }
+  return tailSum
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

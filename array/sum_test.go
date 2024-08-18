@@ -44,4 +44,25 @@ func TestFlatten(t *testing.T) {
   })
 }
 
+func TestSumAllTails(t *testing.T) {
+  t.Run("sum of all tails element", func(t *testing.T) {
+    slice1 := []int {1, 2, 3}
+    slice2 := []int {4, 5}
+
+    got := SumAllTails(slice1, slice2)
+    want := []int {5, 5}
+
+    if !slices.Equal(got, want) {
+    t.Errorf("got %d want %d", got, want)
+     }
+  })
+  t.Run("safely sum empty slices", func(t *testing.T) {
+		got := SumAllTails([]int{}, []int{3, 4, 5})
+		want := []int{0, 9}
+    if !slices.Equal(got, want) {
+    t.Errorf("got %d want %d", got, want)
+    }
+	})
+}
+
 
